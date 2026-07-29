@@ -17,7 +17,7 @@
 #include "app.c"
 
 void main(void)
-{
+{    
     Sys_Init();
     Uart_Init();
     RTC_Service();

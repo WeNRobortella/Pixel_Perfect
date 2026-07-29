@@ -21,15 +21,12 @@
 #include "MovementComponent.h"
 #include "PlayerCharacter.h"
 
-// idata u16 Debugger = 0x3000;
-// xdata u8 MovementAxisCheck = 0x00;
-
 void App_Init(void)
 {
 	DeltaTime_Init();
 	ControllerSetup();
-	DefineMovementComponent();
 	DefinePlayerAttributes();
+	DefineMovementComponent();
 }
 
 void App_Update(void)

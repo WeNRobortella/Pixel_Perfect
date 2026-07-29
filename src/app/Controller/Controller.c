@@ -32,7 +32,7 @@ void ButtonBindOnRelease(u8 ID, ButtonCall FunCall)
 
 void GetButton(u8 ID, u8 Trigger)
 {
-	if (ID == 0) return;
+	if (ID == 0 || ID >= MAX_BUTTONS) return;
 	if (Trigger)
 	{
 		if (ButtonList[ID].OnPress != 0)
