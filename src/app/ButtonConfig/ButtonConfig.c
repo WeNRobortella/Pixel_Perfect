@@ -4,10 +4,11 @@ __xdata u16 ButtonPressed = NO_BUTTON;
 
 void ControllerSetup(void)
 {
-    ButtonRegister(BUTTON_UP);
-    ButtonRegister(BUTTON_DOWN);
-    ButtonRegister(BUTTON_LEFT);
-    ButtonRegister(BUTTON_RIGHT);
+    Controller_Init();
+    ButtonRegister(BUTTON_UP, -1, Y_POSITION_SP_OFFSET);
+    ButtonRegister(BUTTON_DOWN, 1, Y_POSITION_SP_OFFSET);
+    ButtonRegister(BUTTON_LEFT, -1, X_POSITION_SP_OFFSET);
+    ButtonRegister(BUTTON_RIGHT, 1, X_POSITION_SP_OFFSET);
 }
 
 void InterfaceCheck(void)

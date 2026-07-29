@@ -3,6 +3,8 @@
 #include "sys.h"
 #include "Controller.h"
 
+#define X_POSITION_SP_OFFSET 0x0001
+#define Y_POSITION_SP_OFFSET 0x0002
 #define CONTROLLER_INTERFACE 0x2000
 
 typedef enum

@@ -23,7 +23,7 @@ endif
 # Include directory path
 INCLUDES = 	-Isrc -Isrc/app -Iinclude -Istartup -Ilib/uart -Ilib/sys \
 			-Ilib/crc16 -Ilib/timer -Ilib/rtc -Isrc/flags -Isrc/app/ButtonConfig \
-			-Isrc/app/Controller -Isrc/app/DeltaTime -Isrc/app/MovementComponent \
+			-Isrc/app/Controller -Isrc/app/DeltaTime -Isrc/app/GameInstance -Isrc/app/MovementComponent \
 			-Isrc/app/PlayerCharacter
 
 # Common flags for SDCC
@@ -38,6 +38,7 @@ SRCS = \
 	src/app/ButtonConfig/ButtonConfig.c \
 	src/app/Controller/Controller.c \
 	src/app/DeltaTime/DeltaTime.c \
+	src/app/PlayerCharacter/GameInstance.c \
 	src/app/MovementComponent/MovementComponent.c \
 	src/app/PlayerCharacter/PlayerCharacter.c \
 	lib/uart/uart.c \
@@ -50,8 +51,8 @@ SRCS = \
 ASMS = startup/startup_T5L.s
 RELS     = 	$(OBJDIR)/main.rel $(OBJDIR)/startup_T5L.rel $(OBJDIR)/uart.rel $(OBJDIR)/sys.rel \
 			$(OBJDIR)/crc16.rel $(OBJDIR)/timer.rel $(OBJDIR)/rtc.rel $(OBJDIR)/ButtonConfig.rel \
-			$(OBJDIR)/Controller.rel $(OBJDIR)/DeltaTime.rel $(OBJDIR)/MovementComponent.rel \
-			$(OBJDIR)/PlayerCharacter.rel \
+			$(OBJDIR)/Controller.rel $(OBJDIR)/DeltaTime.rel $(OBJDIR)/GameInstance.rel \
+			$(OBJDIR)/MovementComponent.rel $(OBJDIR)/PlayerCharacter.rel \
 
 
 # Link-time relative object list from inside build/dist
@@ -102,6 +103,10 @@ $(OBJDIR)/Controller.rel: src/app/Controller/Controller.c
 	$(SDCC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR)/DeltaTime.rel: src/app/DeltaTime/DeltaTime.c
+	@mkdir -p $(OBJDIR)
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/GameInstance.rel: src/app/GameInstance/GameInstance.c
 	@mkdir -p $(OBJDIR)
 	$(SDCC) $(CFLAGS) -c $< -o $@
 
