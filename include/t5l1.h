@@ -45,6 +45,9 @@
 #ifndef __interrupt
 #define __interrupt(x)
 #endif
+#ifndef __reentrant
+#define __reentrant
+#endif
 #endif
 /* --------------------------------------------------------------- */
 
